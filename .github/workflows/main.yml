@@ -19,7 +19,7 @@ jobs:
       uses: actions/checkout@v2.4.2
     - name: Build with Nativefier
       env: |
-       url: ${{ cat config.json | jq -r ".url" }}
+        url: ${{ cat config.json | jq -r ".url" }}
         name: ${{ cat config.json | jq -r ".name" }}
         icon: ${{ cat config.json | jq -r ".icon" }}
         args: ${{ cat config.json | jq -r ".args" }}
