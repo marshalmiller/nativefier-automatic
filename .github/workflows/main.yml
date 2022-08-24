@@ -17,16 +17,16 @@ jobs:
         npm install -g nativefier
     - name: Checkout
       uses: actions/checkout@v2.4.2
+    - name: Setting things up
+      run: |
+        echo url=$(cat config.json | jq -r ".url") >> GITHUB_ENV
+        echo name=$(cat config.json | jq -r ".name") >> GITHUB_ENV
+        echo icon=$(cat config.json | jq -r ".icon") >> GITHUB_ENV
+        echo args=$(cat config.json | jq -r ".args") >> GITHUB_ENV
     - name: Build with Nativefier
-      env: |
-        url: ${{ cat config.json | jq -r ".url" }}
-        name: ${{ cat config.json | jq -r ".name" }}
-        icon: ${{ cat config.json | jq -r ".icon" }}
-        args: ${{ cat config.json | jq -r ".args" }}
       run: |
         mkdir build
         cd build
-        nativefier "https://open.spotify.com"
         nativefier $url --name $name --icon $icon ${args}
     - name: Finishing things Up
       run: |
