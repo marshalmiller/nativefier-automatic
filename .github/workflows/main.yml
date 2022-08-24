@@ -24,9 +24,6 @@ jobs:
         mv ../config.json .
         nativefier $(cat config.json | jq -r ".url") --name $(cat config.json | jq -r ".name") --icon $(cat config.json | jq -r ".icon") $(cat config.json | jq -r ".args")
         rm config.json
-    - name: Finishing things Up
-      run: |
-        zip -r build.zip *
     - uses: actions/upload-artifact@v2
       with:
         name: build.zip
