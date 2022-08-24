@@ -1,0 +1,7 @@
+{
+    "name": "Spotify",
+    "url": "https://open.spotify.com/",
+    "icon": "spotify.png",
+    "note": "any additional args you want to pass to nativefier. Use single quotes (') only or escape normal quotes (\").",
+    "args": "--inject spotify.js -e 15.3.5 --widevine"
+}
