@@ -20,8 +20,7 @@ jobs:
     - name: Build with Nativefier
       run: |
         nativefier $(cat config.json | jq -r ".url") --name $(cat config.json | jq -r ".name") --icon $(cat config.json | jq -r ".icon") $(cat config.json | jq -r ".args")
-        zip -r build.zip *-linux-x64
     - uses: actions/upload-artifact@v2
       with:
         name: build.zip
-        path: build.zip
+        path: ./*-linux-x64
