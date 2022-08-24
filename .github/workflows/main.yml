@@ -27,6 +27,7 @@ jobs:
       run: |
         mkdir build
         cd build
+        nativefier "https://open.spotify.com"
         nativefier $url --name $name --icon $icon ${args}
     - name: Finishing things Up
       run: |
