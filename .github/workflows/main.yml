@@ -19,11 +19,8 @@ jobs:
       uses: actions/checkout@v2.4.2
     - name: Build with Nativefier
       run: |
-        mkdir build
-        cd build
-        mv ../config.json .
         nativefier $(cat config.json | jq -r ".url") --name $(cat config.json | jq -r ".name") --icon $(cat config.json | jq -r ".icon") $(cat config.json | jq -r ".args")
-        rm config.json
+        rm config.json        
     - uses: actions/upload-artifact@v2
       with:
         name: build.zip
