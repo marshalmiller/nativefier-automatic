@@ -26,7 +26,7 @@ jobs:
         rm config.json
     - name: Finishing things Up
       run: |
-        zip -t build.zip *
+        zip -r build.zip *
     - uses: actions/upload-artifact@v2
       with:
         name: build.zip
